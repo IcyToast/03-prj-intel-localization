@@ -1,12 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap");
 
-/* Simple reset to make spacing predictable */
+/* ============================================================================
+   GLOBAL STYLES
+   ============================================================================ */
+
+/* Universal reset - box sizing and spacing */
 * {
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
 }
 
+/* Base typography and page background */
 body {
 	font-family: "Montserrat", Arial, sans-serif;
 	color: #0b1f3a;
@@ -14,15 +19,202 @@ body {
 	line-height: 1.6;
 }
 
+/* ============================================================================
+   CSS VARIABLES
+   ============================================================================ */
+
+/* Reusable sizing variables for timeline cards */
 :root {
 	--card-height: 520px;
 	--para-max: 200px;
 	--card-width: calc((100% - 60px) / 4);
-	--card-text-gap: 0px; /* Extra space under the paragraph */
+	--card-text-gap: 0px;
 	--max-paragraph: 0px;
 }
 
-/* Hero fills the first screen with a background image + gradient overlay */
+/* ============================================================================
+   TYPOGRAPHY & LINKS
+   ============================================================================ */
+
+/* Link styling - bright blue with smooth transitions */
+a {
+	color: #0066cc;
+	text-decoration: none;
+	transition: color 0.2s ease;
+}
+
+a:hover {
+	color: #0052a3;
+	text-decoration: underline;
+}
+
+/* ============================================================================
+   GOOGLE TRANSLATE WIDGET
+   ============================================================================ */
+
+/* Fixed circular button for language translation */
+.translate-widget {
+	position: fixed;
+	bottom: 24px;
+	right: 24px;
+	background: rgba(11, 31, 58, 0.95);
+	width: 70px;
+	height: 70px;
+	border-radius: 50%;
+	box-shadow: 0 4px 12px rgba(11, 31, 58, 0.3);
+	color: #ffffff;
+	font-size: 0.85rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	z-index: 1000;
+	overflow: hidden;
+}
+
+/* RTL language support - move widget to left */
+[dir="rtl"] .translate-widget {
+	right: auto;
+	left: 24px;
+}
+
+/* Centered "Aa" icon placeholder */
+.translate-widget::before {
+	content: "Aa";
+	font-size: 1.5rem;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	transition: opacity 0.2s ease;
+	font-weight: 700;
+	letter-spacing: 0;
+	line-height: 1;
+}
+
+/* Hide icon when widget is expanded */
+.translate-widget.expanded::before {
+	opacity: 0;
+}
+
+/* Expanded widget layout - wider container */
+.translate-widget.expanded {
+	width: 240px;
+	height: auto;
+	border-radius: 16px;
+	padding: 12px 16px;
+	justify-content: flex-start;
+}
+
+/* Hidden dropdown selector initially */
+.translate-widget .goog-te-combo {
+	opacity: 0;
+	pointer-events: none;
+	width: 0;
+	height: 0;
+	transition: opacity 0.2s ease;
+}
+
+/* Gadget container - contained overflow */
+.translate-widget .goog-te-gadget {
+	overflow: hidden;
+}
+
+/* Hide powered by text when widget is collapsed */
+.translate-widget:not(.expanded) .goog-te-gadget > span,
+.translate-widget:not(.expanded) .goog-te-gadget-simple,
+.translate-widget:not(.expanded) .goog-te-gadget-simple > span {
+	display: none !important;
+	visibility: hidden !important;
+	height: 0 !important;
+	width: 0 !important;
+	margin: 0 !important;
+	padding: 0 !important;
+	overflow: hidden !important;
+	font-size: 0 !important;
+	line-height: 0 !important;
+}
+
+/* Force-hide any remaining gadget text when collapsed */
+.translate-widget:not(.expanded) .goog-te-gadget {
+	font-size: 0 !important;
+	line-height: 0 !important;
+}
+
+/* Google logo link hidden by default */
+.translate-widget .goog-logo-link {
+	display: none !important;
+}
+
+/* Show branding elements when expanded */
+.translate-widget.expanded .goog-te-gadget,
+.translate-widget.expanded .goog-te-gadget-simple,
+.translate-widget.expanded .goog-te-gadget-simple > span {
+	display: block !important;
+	visibility: visible !important;
+	height: auto !important;
+	width: auto !important;
+	font-size: 0.75rem !important;
+	line-height: 1 !important;
+	color: #ffffff !important;
+}
+
+/* Keep translate links the same color as the widget text */
+.translate-widget a {
+	color: #ffffff !important;
+}
+
+/* Show Google attribution when expanded */
+.translate-widget.expanded .goog-logo-link {
+	display: block !important;
+	color: #ffffff !important;
+	font-size: 0.75rem !important;
+	padding-top: 12px !important;
+	margin-top: 8px !important;
+	border-top: 1px solid rgba(255, 255, 255, 0.2) !important;
+	text-decoration: none !important;
+}
+
+/* Transparent gadget container styling */
+.translate-widget .goog-te-gadget-simple {
+	background: transparent !important;
+	border: none !important;
+}
+
+/* Show dropdown when expanded */
+.translate-widget.expanded .goog-te-combo {
+	opacity: 1;
+	pointer-events: auto;
+	width: 100%;
+	height: auto;
+}
+
+/* Language dropdown styling */
+.translate-widget select {
+	background: rgba(255, 255, 255, 0.1);
+	color: #ffffff;
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	font-family: "Montserrat", Arial, sans-serif;
+	font-size: 0.9rem;
+	outline: none;
+	padding: 8px 12px;
+	border-radius: 8px;
+	width: 100%;
+	cursor: pointer;
+}
+
+/* Dropdown option styling */
+.translate-widget option {
+	color: #0b1f3a;
+	background: #ffffff;
+}
+
+/* ============================================================================
+   HERO SECTION
+   ============================================================================ */
+
+/* Full-height hero section with gradient and background image */
 .hero {
 	min-height: 100vh;
 	background-image:
@@ -35,19 +227,23 @@ body {
 	align-items: center;
 	justify-content: center;
 	padding: 60px 20px;
+	border-bottom: 1px solid rgba(11, 31, 58, 0.15);
 }
 
+/* Centered content container */
 .hero-content {
 	max-width: 720px;
 	text-align: center;
 }
 
+/* Intel logo sizing with responsive scaling */
 .logo {
 	width: clamp(140px, 18vw, 220px);
 	height: auto;
 	margin-bottom: 20px;
 }
 
+/* Main hero heading with responsive font size */
 .hero h1 {
 	font-size: clamp(2rem, 4vw, 3.2rem);
 	font-weight: 800;
@@ -55,7 +251,7 @@ body {
 	margin-bottom: 16px;
 }
 
-/* Separator line between the heading and paragraph */
+/* Decorative line below heading */
 .hero h1::after {
 	content: "";
 	display: block;
@@ -66,11 +262,22 @@ body {
 	border-radius: 999px;
 }
 
+/* Hero description text */
 .hero p {
 	font-size: clamp(1rem, 2vw, 1.25rem);
 	opacity: 0.95;
 }
 
+/* ============================================================================
+   TIMELINE SECTION
+   ============================================================================ */
+
+/* Timeline section container with border divider */
+.timeline-section {
+	border-bottom: 1px solid rgba(11, 31, 58, 0.15);
+}
+
+/* Wrapper for timeline and scroll arrows */
 .timeline-wrap {
 	display: flex;
 	align-items: center;
@@ -78,8 +285,7 @@ body {
 	position: relative;
 }
 
-/* Timeline is horizontal using flexbox */
-/* 4 cards fit across the screen */
+/* Horizontal scrolling card container */
 .timeline {
 	display: flex;
 	align-items: stretch;
@@ -91,6 +297,7 @@ body {
 	scroll-padding-right: 60px;
 }
 
+/* Round arrow navigation buttons */
 .timeline-arrow {
 	background: #0b5fff;
 	color: #ffffff;
@@ -107,17 +314,20 @@ body {
 	flex: 0 0 auto;
 }
 
+/* Disabled arrow state */
 .timeline-arrow:disabled {
 	background: #98b7ff;
 	cursor: not-allowed;
 	opacity: 0.7;
 }
 
+/* Keyboard focus ring for accessibility */
 .timeline-arrow:focus {
 	outline: 2px solid #ffffff;
 	outline-offset: 2px;
 }
 
+/* Timeline info hint (hidden by default) */
 .timeline-hint {
 	position: absolute;
 	right: 60px;
@@ -131,11 +341,12 @@ body {
 	transition: opacity 0.2s ease;
 }
 
+/* Show hint when scrolling */
 .timeline-wrap.scroll-active .timeline-hint {
 	opacity: 1;
 }
 
-/* Card size changes with breakpoints */
+/* Timeline card styling */
 .card {
 	background: #ffffff;
 	border-radius: 16px;
@@ -151,18 +362,20 @@ body {
 	transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Group all card elements so we can measure their total height on hover */
+/* Lift card on hover */
+.card:hover,
+.card:focus-within {
+	transform: translateY(-6px);
+	box-shadow: 0 14px 28px rgba(11, 31, 58, 0.18);
+}
+
+/* Card content flexbox container */
 .card-content {
 	display: flex;
 	flex-direction: column;
 }
 
-/* Group all card elements so we can measure their total height on hover */
-.card-content {
-	display: flex;
-	flex-direction: column;
-}
-
+/* Card image with aspect ratio control */
 .card-image {
 	width: 100%;
 	height: 220px;
@@ -172,96 +385,228 @@ body {
 	transition: height 0.2s ease;
 }
 
+/* Shrink image on hover to show more text */
+.card:hover .card-image,
+.card:focus-within .card-image {
+	height: 160px;
+}
+
+/* Card year heading */
 .card h2 {
 	font-size: 1.3rem;
-  text-align: center;
+	text-align: center;
 	color: #0b5fff;
 	margin-bottom: 6px;
 }
 
+/* Card event title */
 .card h3 {
 	font-size: 1.05rem;
-  text-align: center;
+	text-align: center;
 	margin-bottom: 10px;
 }
 
-/* Paragraphs are hidden until hover or focus */
+/* Hidden until hover - description text */
 .card p {
 	font-size: 0.95rem;
-  text-align: center;
+	text-align: center;
 	opacity: 0;
 	max-height: 0;
 	overflow: hidden;
 	transition: opacity 0.2s ease, max-height 0.2s ease;
 }
 
-
+/* Reveal description on hover */
 .card:hover p,
 .card:focus-within p {
 	opacity: 1;
 	max-height: var(--max-paragraph);
 }
 
-/* Shrink image on hover so text fits underneath */
-.card:hover .card-image,
-.card:focus-within .card-image {
-	height: 160px;
-}
-
-/* Measure the tallest card content to keep all cards equal height */
-.timeline.measure-cards .card {
+/* Measurement helper classes */
+.timeline.measure-cards .card,
+.timeline.measure-hover .card {
 	height: auto;
 }
 
-.timeline.measure-cards .card p {
-	opacity: 1;
-	max-height: none;
-}
-
-.timeline.measure-cards .card-image {
-	height: 160px;
-}
-
-/* Temporarily reveal hover content so heights can be measured */
+.timeline.measure-cards .card p,
 .timeline.measure-hover .card p {
 	opacity: 1;
 	max-height: none;
 }
 
+.timeline.measure-cards .card-image,
 .timeline.measure-hover .card-image {
 	height: 160px;
 }
 
-/* Show full paragraphs for measuring at each screen size */
-.timeline.measure-paragraph .card p {
-	opacity: 1;
-	max-height: none;
+/* ============================================================================
+   CONTENT SECTIONS - COLUMNS & LAYOUT
+   ============================================================================ */
+
+/* Light background section divider */
+.section-surface {
+	background: #ffffff;
+	border-bottom: 1px solid rgba(11, 31, 58, 0.15);
+	padding: 0;
 }
 
-.card:hover,
-.card:focus-within {
-	transform: translateY(-6px);
-	box-shadow: 0 14px 28px rgba(11, 31, 58, 0.18);
+/* Container max-width and padding */
+.section-surface .container {
+	max-width: 1600px;
+	padding-left: 0;
+	padding-right: 0;
 }
 
-@media (max-width: 1500px) {
-	:root {
-		--card-width: calc((100% - 40px) / 3);
-		--card-height: 560px;
-		--para-max: 240px;
-	}
+/* Vertical column borders and spacing */
+.section-surface .col-12.col-md-6.col-lg-4 {
+	padding: 30px 40px;
 }
 
-@media (max-width: 1200px) {
-	:root {
-		--card-width: calc((100% - 20px) / 2);
-		--card-height: 600px;
-		--para-max: 280px;
-	}
+/* Base: no borders on stacked mobile layout */
+.section-surface .col-12.col-md-6.col-lg-4 {
+	border-left: none;
+	border-right: none;
+	border-top: none;
+	border-bottom: 1px solid rgba(11, 31, 58, 0.15);
 }
 
-/* Stack timeline vertically on mobile */
+.section-surface .col-12.col-md-6.col-lg-4:last-child {
+	border-bottom: none;
+}
+
+
+/* Section divider styling */
+.section-divider {
+	height: 18px;
+	background: linear-gradient(90deg, rgba(87, 144, 250, 0.25), rgba(10, 58, 168, 0.25), rgba(5, 36, 95, 0.25));
+	margin: 10px 0 0;
+}
+
+/* Hide sustainability accordion and show column layout */
+.section-surface .accordion {
+	display: none !important;
+}
+
+.section-surface .accordion-item,
+.section-surface .accordion-button,
+.section-surface .accordion-body {
+	display: none !important;
+}
+
+.section-surface .row {
+	display: flex;
+}
+
+/* Full-width columns on mobile */
+.section-surface .col-12 {
+	flex: 0 0 100%;
+	max-width: 100%;
+}
+
+/* Subscription section styling */
+.bg-light {
+	border-bottom: 1px solid rgba(11, 31, 58, 0.15);
+}
+
+/* Full-width subscription accordion */
+.subscribe-section .container-fluid {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.subscribe-section {
+	padding-bottom: 0;
+}
+
+.subscribe-accordion {
+	border: 1px solid rgba(11, 31, 58, 0.15);
+}
+
+.subscribe-accordion .accordion-button {
+	font-family: inherit;
+	font-weight: 400;
+	font-size: 1.75rem;
+	padding: 18px 24px;
+	justify-content: center;
+	text-align: center;
+}
+
+.subscribe-accordion .accordion-body {
+	padding: 24px 48px 32px;
+}
+
+.subscribe-accordion .accordion-body .btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.subscribe-accordion .form-check {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+}
+
+.subscribe-accordion .form-check-label {
+	text-align: center;
+}
+
+/* Timeline note text */
+.timeline-note {
+	text-align: center;
+	color: #456;
+	padding: 10px 20px 40px;
+	font-size: 0.95rem;
+}
+
+/* ============================================================================
+   FOOTER
+   ============================================================================ */
+
+/* Footer with gradient background matching hero */
+.footer-hero {
+	background-image: linear-gradient(135deg, rgba(87, 144, 250, 0.95), rgba(10, 58, 168, 0.95) 60%, rgba(5, 36, 95, 0.95));
+	color: #ffffff;
+}
+
+/* Footer links in white */
+.footer-hero a {
+	color: #ffffff;
+	text-decoration: none;
+}
+
+.footer-hero a:hover {
+	text-decoration: underline;
+}
+
+/* ============================================================================
+   RESPONSIVE DESIGN - MEDIA QUERIES
+   ============================================================================ */
+
+/* ===== Small to Medium Screens (max-width: 820px) ===== */
+
 @media (max-width: 820px) {
+	/* Smaller translate widget on mobile */
+	.translate-widget {
+		position: fixed;
+		bottom: 16px;
+		right: 16px;
+		width: 60px;
+		height: 60px;
+	}
+
+	[dir="rtl"] .translate-widget {
+		right: auto;
+		left: 16px;
+	}
+
+	.translate-widget::before {
+		font-size: 1.2rem;
+	}
+
+	/* Stack timeline vertically */
 	.timeline-wrap {
 		align-items: stretch;
 	}
@@ -284,18 +629,134 @@ body {
 	.card {
 		flex: 0 0 auto;
 		width: 100%;
-
 	}
 
 	.card:hover,
 	.card:focus-within {
 		transform: translateY(-6px) scale(1.02);
 	}
+
+	/* Add section padding on mobile */
+	.section-surface {
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	.section-surface .container {
+		padding-left: 0;
+		padding-right: 0;
+		max-width: 100%;
+	}
+
+	/* Column borders stacked vertically */
+	.section-surface .col-12:not(:last-child) {
+		border-bottom: 1px solid rgba(11, 31, 58, 0.15);
+		margin-bottom: 25px;
+		padding-bottom: 25px;
+	}
+
+	/* Adjust card sizes */
+	:root {
+		--card-width: calc((100% - 20px) / 2);
+		--card-height: 600px;
+		--para-max: 280px;
+	}
 }
 
-.timeline-note {
-	text-align: center;
-	color: #456;
-	padding: 10px 20px 40px;
-	font-size: 0.95rem;
+/* ===== Medium Screens (820px - 1199px) ===== */
+
+@media (min-width: 820px) and (max-width: 1199px) {
+	.section-surface {
+		padding: 3rem 0;
+	}
+
+	.section-surface .container {
+		padding-left: 60px;
+		padding-right: 60px;
+	}
+
+	/* Thin grid lines for 2-column layout */
+	.section-surface .col-12.col-md-6.col-lg-4 {
+		border-left: none;
+		border-right: none;
+		border-top: none;
+		border-bottom: 1px solid rgba(11, 31, 58, 0.15);
+	}
+
+
+	/* Adjust card sizes for 2-column layout */
+	:root {
+		--card-width: calc((100% - 40px) / 3);
+		--card-height: 560px;
+		--para-max: 240px;
+	}
+}
+
+/* ===== Large Screens (min-width: 820px) ===== */
+
+@media (min-width: 820px) {
+	.section-surface {
+		padding: 3rem 0;
+	}
+
+	.section-surface .container {
+		padding-left: 60px;
+		padding-right: 60px;
+	}
+}
+
+/* ===== Extra Large Screens (min-width: 1200px) ===== */
+
+@media (min-width: 1200px) {
+	/* Three-column layout */
+	.section-surface .col-lg-4 {
+		flex: 0 0 33.333%;
+		max-width: 33.333%;
+	}
+
+	/* Thin grid lines for 3-column layout */
+	.section-surface .col-12.col-md-6.col-lg-4 {
+		border-left: none;
+		border-right: none;
+		border-top: none;
+		border-bottom: none;
+	}
+
+	.section-surface .col-12.col-md-6.col-lg-4:nth-child(3n+2),
+	.section-surface .col-12.col-md-6.col-lg-4:nth-child(3n) {
+		border-left: 1px solid rgba(11, 31, 58, 0.15);
+	}
+
+	/* RTL: move dividers to the right side */
+	[dir="rtl"] .section-surface .col-12.col-md-6.col-lg-4:nth-child(3n+2),
+	[dir="rtl"] .section-surface .col-12.col-md-6.col-lg-4:nth-child(3n) {
+		border-left: none;
+		border-right: 1px solid rgba(11, 31, 58, 0.15);
+	}
+
+	/* Adjust card sizes for 3-column layout */
+	:root {
+		--card-width: calc((100% - 60px) / 4);
+		--card-height: 520px;
+		--para-max: 200px;
+	}
+}
+
+/* ===== Extra Extra Large (max-width: 1500px) ===== */
+
+@media (max-width: 1500px) {
+	:root {
+		--card-width: calc((100% - 40px) / 3);
+		--card-height: 560px;
+		--para-max: 240px;
+	}
+}
+
+/* ============================================================================
+   UTILITIES & ACCESSIBILITY
+   ============================================================================ */
+
+/* RTL language support for form inputs */
+[dir="rtl"] .form-control {
+	text-align: right;
 }

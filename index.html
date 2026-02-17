@@ -1,15 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Intel: Sustainability Through the Ages</title>
+  <!-- Bootstrap stylesheet (we will swap to RTL if needed) -->
+  <link
+    id="bootstrap-css"
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+  />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- Google Translate widget container (translates page text, including cards) -->
+  <div id="google_translate_element" class="translate-widget"></div>
 
-  <!-- Header / Hero Section -->
-  <header class="hero">
+  <!-- Main landmark - tells screen readers where the primary content is -->
+  <main>
+    <!-- Header / Hero Section -->
+  <header class="hero scroll-section">
     <div class="hero-content">
       <!-- Ask Copilot to teach you about `.svg`. 🙂 You'll need to resize the logo with CSS. -->
       <img class="logo" src="img/intel-header-logo.svg" alt="Intel Logo" />
@@ -28,6 +38,7 @@
   </header>
 
   <!-- Timeline Cards Section -->
+  <section class="scroll-section timeline-section">
   <div class="timeline-wrap">
     <button class="timeline-arrow left" aria-label="Scroll timeline left">
       &#8249;
@@ -40,7 +51,7 @@
       <div class="card-content">
         <h2>1968</h2>
         <h3>Intel Founded</h3>
-        <img class="card-image" src="img/Gen1.png" alt="1968 timeline placeholder image" />
+        <img class="card-image" src="img/Gen1.png" alt="Photograph of two men representing Intel cofounders Robert Noyce and Gordon Moore, seated at a desk beneath an Intel sign, reviewing documents and examining an early circuit board." />
         <p>
           Robert Noyce and Gordon Moore rename the newly formed company 
           NM Electronics to Intel Corporation, laying the foundation for 
@@ -54,7 +65,7 @@
       <div class="card-content">
         <h2>1971</h2>
         <h3>First Microprocessor</h3>
-        <img class="card-image" src="img/Gen2.png" alt="1971 timeline placeholder image" />
+        <img class="card-image" src="img/Gen2.png" alt="Close-up of an early Intel 4004 microprocessor chip from 1971, shown mounted on a circuit board with gold pins and detailed blue circuitry." />
         <p>
           Intel debuts the 4004, the world's first commercial microprocessor, 
           igniting the microprocessor revolution and propelling the future 
@@ -68,7 +79,7 @@
       <div class="card-content">
         <h2>1978</h2>
         <h3>8086 Processor</h3>
-        <img class="card-image" src="img/Gen4.png" alt="1978 timeline placeholder image" />
+        <img class="card-image" src="img/Gen4.png" alt="Close-up of an Intel 386 microprocessor from 1985, a square black chip with gold pins, placed on a blue printed circuit board." />
         <p>
           Launch of the 8086 processor, establishing the x86 architecture 
           that drives countless PCs and servers in the modern era.
@@ -81,7 +92,7 @@
       <div class="card-content">
         <h2>1985</h2>
         <h3>386 Processor</h3>
-        <img class="card-image" src="img/Gen3.png" alt="1985 timeline placeholder image" />
+        <img class="card-image" src="img/Gen3.png" alt="Close-up of an Intel 8086 microprocessor from 1978, a rectangular ceramic chip with gold pins mounted on a detailed circuit board." />
         <p>
           Intel introduces the 386 processor with 32-bit architecture, 
           ushering in a new era of performance and multitasking for 
@@ -95,7 +106,7 @@
       <div class="card-content">
         <h2>2006</h2>
         <h3>Peak GHG Emissions</h3>
-        <img class="card-image" src="img/Gen5.png" alt="2006 timeline placeholder image" />
+        <img class="card-image" src="img/Gen5.png" alt="Large industrial power plant at sunset with multiple smokestacks releasing thick smoke into the sky, glowing orange from visible furnace light, with a river in the foreground." />
         <p>
           This year marks Intel's highest annual greenhouse gas emissions 
           for operations. Over subsequent years, Intel invests heavily in 
@@ -110,7 +121,7 @@
       <div class="card-content">
         <h2>2020</h2>
         <h3>RISE Strategy</h3>
-        <img class="card-image" src="img/Gen6.png" alt="2020 timeline placeholder image" />
+        <img class="card-image" src="img/Gen6.png" alt="Large conference stage with a screen reading “Intel Launching Our RISE 2030 Goals for Sustainability.” The slide highlights Responsible, Inclusive, Sustainable, and Enabling pillars, with 2030 goals including 100% renewable energy, net positive water, and zero waste to landfill. A presenter stands on stage addressing an audience." />
         <p>
           Intel launches its RISE (Responsible, Inclusive, Sustainable, 
           Enabling) strategy and 2030 goals, aiming to drive industry-wide 
@@ -124,7 +135,7 @@
       <div class="card-content">
         <h2>2022</h2>
         <h3>Net-Zero By 2040</h3>
-        <img class="card-image" src="img/Gen7.png" alt="2022 timeline placeholder image" />
+        <img class="card-image" src="img/Gen7.png" alt="Illustrated graphic of a business leader speaking at a podium with a speech bubble reading “Commitment to Achieve Net-Zero Greenhouse Gas Emissions.” Solar panels and a wind turbine appear in the background, symbolizing renewable energy." />
         <p>
           Intel announces its commitment to achieve net-zero greenhouse 
           gas emissions (Scope 1 and 2) across its global operations 
@@ -138,7 +149,7 @@
       <div class="card-content">
         <h2>2023</h2>
         <h3>Renewable Electricity</h3>
-        <img class="card-image" src="img/Gen82.png" alt="2023 timeline placeholder image" />
+        <img class="card-image" src="img/Gen82.png" alt="Colorful illustrated landscape with wind turbines, solar panels, a river, and the Earth, featuring the text “Intel Achieves 99% Renewable Electricity Usage Worldwide.” Audience silhouettes appear at the bottom of the image." />
         <p>
           The company achieves 99% renewable electricity usage worldwide, 
           helping to drastically lower carbon emissions and driving progress 
@@ -152,7 +163,7 @@
       <div class="card-content">
         <h2>2024</h2>
         <h3>Sustainability Summit</h3>
-        <img class="card-image" src="img/Gen92.png" alt="2024 timeline placeholder image" />
+        <img class="card-image" src="img/Gen92.png" alt="Modern conference room filled with attendees facing a large screen displaying “Intel Sustainability Summit – Uniting for a Sustainable Future.” Panelists sit on stage while a speaker presents at a podium." />
         <p>
           Intel hosts its first Sustainability Summit, uniting suppliers, 
           government officials, and industry leaders to collaborate on 
@@ -167,12 +178,177 @@
     </button>
   </div>
   <p class="timeline-note">Scroll to view timeline | Hover over cards to learn more!</p>
+  </section>
 
   <script>
+    // List of languages that should use right-to-left layout
+    const rtlLanguages = [
+      "ar", // Arabic
+      "he", // Hebrew
+      "fa", // Persian
+      "ur", // Urdu
+      "yi", // Yiddish
+      "sd", // Sindhi
+      "ff", // Fula (Adlam)
+      "rhg", // Rohingya
+      "ps", // Pashto
+      "nqo", // N'Ko
+      "ckb", // Kurdish (Sorani)
+      "dv", // Divehi (Maldivian)
+      "arc", // Aramaic
+      "syr" // Syriac
+    ];
+    // Figure out the page language (fallback to browser or English)
+    const pageLanguage = document.documentElement.lang || navigator.language || "en";
+    const languageCode = pageLanguage.split("-")[0].toLowerCase();
+    // Bootstrap CSS link we will swap between LTR and RTL
+    const bootstrapLink = document.getElementById("bootstrap-css");
+    // Track last language we applied so we do not re-run work
+    let lastAppliedLanguage = "";
+    // Track if the current layout is RTL
+    let isRtl = false;
+    // Detect how this browser handles RTL scrolling
+    let rtlScrollType = "positive-ascending";
+
+    // Apply LTR/RTL layout based on a language code
+    function applyDirection(langCode) {
+      const safeLanguage = (langCode || languageCode).toLowerCase();
+      if (safeLanguage === lastAppliedLanguage) {
+        return;
+      }
+
+      lastAppliedLanguage = safeLanguage;
+      isRtl = rtlLanguages.includes(safeLanguage);
+
+      if (isRtl) {
+        // RTL: set document direction and load RTL Bootstrap
+        document.documentElement.dir = "rtl";
+        bootstrapLink.href = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css";
+      } else {
+        // LTR: set document direction and load default Bootstrap
+        document.documentElement.dir = "ltr";
+        bootstrapLink.href = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css";
+      }
+
+      // Reverse timeline order in RTL so the first card is on the right
+      const timelineElement = document.querySelector(".timeline");
+      if (timelineElement) {
+        timelineElement.classList.toggle("rtl", isRtl);
+      }
+
+      // Re-detect RTL scroll behavior and snap to the first card
+      rtlScrollType = detectRtlScrollType();
+      requestAnimationFrame(() => {
+        scrollTimelineToFirstCard();
+        updateArrowState();
+      });
+    }
+
+    // Read the current language selected in Google Translate
+    function getGoogleTranslateLanguage() {
+      const combo = document.querySelector(".goog-te-combo");
+      if (combo && combo.value) {
+        return combo.value;
+      }
+
+      const match = document.cookie.match(/(?:^|; )googtrans=([^;]+)/);
+      if (match) {
+        const value = decodeURIComponent(match[1]);
+        const parts = value.split("/");
+        return parts[parts.length - 1];
+      }
+
+      return null;
+    }
+
+    // Use the translate language if available, otherwise use the page language
+    function updateDirectionFromTranslate() {
+      const translatedLanguage = getGoogleTranslateLanguage();
+      applyDirection(translatedLanguage || languageCode);
+    }
+
+    // Run once, then keep checking as the user changes languages
+    updateDirectionFromTranslate();
+    setInterval(updateDirectionFromTranslate, 1000);
+
     const timeline = document.querySelector(".timeline");
     const leftArrow = document.querySelector(".timeline-arrow.left");
     const rightArrow = document.querySelector(".timeline-arrow.right");
 
+    // Different browsers handle RTL scrolling differently; detect the type
+    function detectRtlScrollType() {
+      const testElement = document.createElement("div");
+      testElement.style.width = "100px";
+      testElement.style.height = "100px";
+      testElement.style.overflow = "scroll";
+      testElement.style.direction = "rtl";
+      testElement.style.visibility = "hidden";
+      testElement.innerHTML = "<div style='width:200px;height:1px;'></div>";
+      document.body.appendChild(testElement);
+
+      testElement.scrollLeft = 1;
+      if (testElement.scrollLeft === 0) {
+        document.body.removeChild(testElement);
+        return "negative";
+      }
+
+      testElement.scrollLeft = -1;
+      if (testElement.scrollLeft < 0) {
+        document.body.removeChild(testElement);
+        return "negative";
+      }
+
+      testElement.scrollLeft = 999;
+      const type = testElement.scrollLeft === 0 ? "positive-descending" : "positive-ascending";
+      document.body.removeChild(testElement);
+      return type;
+    }
+
+    // Get how far the timeline is from the right edge
+    function getDistanceFromRight() {
+      const maxScrollLeft = timeline.scrollWidth - timeline.clientWidth;
+      if (!isRtl) {
+        return maxScrollLeft - timeline.scrollLeft;
+      }
+
+      if (rtlScrollType === "negative") {
+        return Math.abs(timeline.scrollLeft);
+      }
+
+      if (rtlScrollType === "positive-descending") {
+        return maxScrollLeft - timeline.scrollLeft;
+      }
+
+      return timeline.scrollLeft;
+    }
+
+    // Get how far the timeline is from the left edge
+    function getDistanceFromLeft() {
+      const maxScrollLeft = timeline.scrollWidth - timeline.clientWidth;
+      if (!isRtl) {
+        return timeline.scrollLeft;
+      }
+
+      return maxScrollLeft - getDistanceFromRight();
+    }
+
+    // Jump to the first card when the language direction changes
+    function scrollTimelineToFirstCard() {
+      const maxScrollLeft = timeline.scrollWidth - timeline.clientWidth;
+      if (!isRtl) {
+        timeline.scrollTo({ left: 0, behavior: "auto" });
+        return;
+      }
+
+      if (rtlScrollType === "positive-ascending") {
+        timeline.scrollTo({ left: maxScrollLeft, behavior: "auto" });
+        return;
+      }
+
+      timeline.scrollTo({ left: 0, behavior: "auto" });
+    }
+
+    // Scroll by one card width in the direction of the arrow
     function scrollByCard(direction) {
       const cards = Array.from(timeline.querySelectorAll(".card"));
       if (!cards.length) {
@@ -181,6 +357,7 @@
 
       const cardWidth = cards[0].offsetWidth;
       const gap = 20;
+      // Keep arrow behavior the same for all languages
       timeline.scrollBy({
         left: direction * (cardWidth + gap),
         behavior: "smooth"
@@ -190,16 +367,19 @@
     leftArrow.addEventListener("click", () => scrollByCard(-1));
     rightArrow.addEventListener("click", () => scrollByCard(1));
 
+    // Disable arrows when the timeline is at the start or end
     function updateArrowState() {
       const maxScrollLeft = timeline.scrollWidth - timeline.clientWidth;
-      leftArrow.disabled = timeline.scrollLeft <= 0;
-      rightArrow.disabled = timeline.scrollLeft >= maxScrollLeft - 1;
+      const currentScroll = getDistanceFromLeft();
+      leftArrow.disabled = currentScroll <= 0;
+      rightArrow.disabled = currentScroll >= maxScrollLeft - 1;
     }
 
     timeline.addEventListener("scroll", updateArrowState);
     window.addEventListener("load", updateArrowState);
     window.addEventListener("resize", updateArrowState);
 
+    // Measure cards so all heights match the tallest one
     function updateCardHeight() {
       const cards = Array.from(timeline.querySelectorAll(".card"));
       if (!cards.length) {
@@ -247,6 +427,243 @@
 
     window.addEventListener("load", updateCardHeight);
     window.addEventListener("resize", () => requestAnimationFrame(updateCardHeight));
+    window.addEventListener("load", () => {
+      rtlScrollType = detectRtlScrollType();
+    });
   </script>
+
+  <!-- Google Translate setup -->
+  <script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement(
+        { pageLanguage: "en" },
+        "google_translate_element"
+      );
+
+      // Add expand/collapse behavior to the translate widget
+      setTimeout(() => {
+        const widget = document.getElementById("google_translate_element");
+        let isExpanded = false;
+
+        // Add accessibility labels to injected translate elements
+        function applyTranslateA11y() {
+          const frame = document.querySelector("iframe.goog-te-menu-frame");
+          if (frame && !frame.title) {
+            frame.title = "Google Translate language menu";
+          }
+
+          const logoLink = widget.querySelector(".goog-logo-link");
+          if (logoLink && !logoLink.getAttribute("aria-label")) {
+            logoLink.setAttribute("aria-label", "Powered by Google Translate");
+          }
+
+          const select = widget.querySelector("select");
+          if (select && !select.getAttribute("aria-label")) {
+            select.setAttribute("aria-label", "Select language");
+          }
+        }
+
+        // Toggle expansion when clicking the widget
+        widget.addEventListener("click", (e) => {
+          // If already expanded and clicking the dropdown, don't toggle
+          if (isExpanded && e.target.tagName === 'SELECT') {
+            return;
+          }
+          
+          // Toggle expansion
+          if (!isExpanded) {
+            isExpanded = true;
+            widget.classList.add("expanded");
+          }
+        });
+
+        // Close when clicking outside
+        document.addEventListener("click", (e) => {
+          if (!widget.contains(e.target) && isExpanded) {
+            isExpanded = false;
+            widget.classList.remove("expanded");
+          }
+        });
+
+        // Close after selecting a language
+        const observer = new MutationObserver(() => {
+          const select = widget.querySelector('select');
+          if (select) {
+            applyTranslateA11y();
+            select.addEventListener('change', () => {
+              setTimeout(() => {
+                isExpanded = false;
+                widget.classList.remove("expanded");
+              }, 300);
+            });
+            observer.disconnect();
+          }
+        });
+        observer.observe(widget, { childList: true, subtree: true });
+
+        // Keep checking until the iframe and select are available
+        const a11yInterval = setInterval(() => {
+          applyTranslateA11y();
+          const frameReady = document.querySelector("iframe.goog-te-menu-frame");
+          const selectReady = widget.querySelector("select");
+          if (frameReady && selectReady) {
+            clearInterval(a11yInterval);
+          }
+        }, 500);
+      }, 500);
+    }
+  </script>
+  <script
+    src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+  ></script>
+
+ <!-- Content Section - 3 Columns responsive -->
+  <section class="section-surface scroll-section">
+    <div class="container">
+      <!-- Three-column layout -->
+      <div class="row g-4">
+        <!-- Column 1 -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <h2>RISE Strategy</h2>
+          <p>
+            Under its RISE (Responsible, Inclusive, Sustainable, Enabling) strategy,
+            Intel sets ambitious 2030 goals, including driving industry-wide
+            progress on climate action, water stewardship, and waste reduction.
+          </p>
+          <a href="#" class="btn btn-primary">Learn More</a>
+        </div>
+
+        <!-- Column 2 -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <h2>Commitment</h2>
+          <p>
+            In 2022, Intel pledged to achieve net-zero greenhouse gas emissions
+            (Scope 1 and 2) by 2040. This commitment builds on decades of
+            environmental initiatives and partnerships across the semiconductor
+            industry.
+          </p>
+          <a href="#" class="btn btn-primary">Learn More</a>
+        </div>
+
+        <!-- Column 3 -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <h2>Water &amp; Waste</h2>
+          <p>
+            Intel conserves billions of gallons of water annually and
+            collaborates with local communities to restore watersheds.
+            Intel also upcycles and recycles materials to reduce waste and
+            advance a circular economy.
+          </p>
+          <a href="#" class="btn btn-primary">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Subscription Accordion (full width) -->
+  <section class="py-5 bg-light scroll-section subscribe-section">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <!-- Bootstrap accordion for the subscription form -->
+          <div class="accordion accordion-flush subscribe-accordion" id="subscribeAccordion">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="subscribeHeading">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#subscribeCollapse"
+                  aria-expanded="false"
+                  aria-controls="subscribeCollapse"
+                >
+                  Subscribe to our Newsletter
+                </button>
+              </h2>
+
+              <div
+                id="subscribeCollapse"
+                class="accordion-collapse collapse"
+                aria-labelledby="subscribeHeading"
+                data-bs-parent="#subscribeAccordion"
+              >
+                <div class="accordion-body">
+                  <p class="text-muted mb-4 text-center">
+                    Get the latest sustainability updates and stories from Intel.
+                  </p>
+
+                  <!-- Simple subscription form -->
+                  <form class="row g-3">
+                    <div class="col-12 col-md-6">
+                      <label for="subscriber-name" class="form-label">Full Name</label>
+                      <input
+                        type="text"
+                        id="subscriber-name"
+                        class="form-control"
+                        placeholder="Your name"
+                        required
+                      />
+                    </div>
+
+                    <div class="col-12 col-md-6">
+                      <label for="subscriber-email" class="form-label">Email Address</label>
+                      <input
+                        type="email"
+                        id="subscriber-email"
+                        class="form-control"
+                        placeholder="you@example.com"
+                        required
+                      />
+                    </div>
+
+                    <div class="col-12">
+                      <div class="form-check">
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          id="subscriber-opt-in"
+                          required
+                        />
+                        <label class="form-check-label" for="subscriber-opt-in">
+                          I agree to receive emails from Intel.
+                        </label>
+                      </div>
+                    </div>
+
+                    <div class="col-12 text-center">
+                      <button type="submit" class="btn btn-primary px-4">
+                        Subscribe
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="py-4 footer-hero">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-12 col-md-6 text-center text-md-start">
+          <p class="mb-0">&copy; 2026 Intel Corporation. All rights reserved.</p>
+        </div>
+        <div class="col-12 col-md-6 text-center text-md-end mt-2 mt-md-0">
+          <span class="me-3">Email: sustainability@intel.com</span>
+          <a href="#" class="text-white me-3">Privacy</a>
+          <a href="#" class="text-white me-3">Terms</a>
+          <a href="#" class="text-white">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS for accordion and other interactive components -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
